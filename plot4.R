@@ -3,7 +3,12 @@ plot4 <- function(){
     library(graphics)
     library(grDevices)
     
-    # First we need to extract ONLY the needed data
+    # Save my locale configuration
+    mylocale <- Sys.getlocale("LC_TIME")
+    # Set language to english
+    Sys.setlocale("LC_TIME", "en_US.UTF-8")
+    
+    # We need to extract ONLY the needed data
     dataFile <- "household_power_consumption.txt"
     date1 <- "1/2/2007"
     date2 <- "2/2/2007"
@@ -51,4 +56,7 @@ plot4 <- function(){
     
     # close the device so R can write the plot to "plot1.png"
     dev.off()
+    
+    # set the original language locale
+    Sys.setlocale("LC_TIME", mylocale)
 }

@@ -3,6 +3,11 @@ plot3 <- function(){
     library(graphics)
     library(grDevices)
     
+    # Save my locale configuration
+    mylocale <- Sys.getlocale("LC_TIME")
+    # Set language to english
+    Sys.setlocale("LC_TIME", "en_US.UTF-8")
+    
     # First we need to extract ONLY the needed data
     data <- fread("household_power_consumption.txt", na.strings = "?")[Date == "1/2/2007" | Date == "2/2/2007",
                 .(Date, Time, Global_active_power, Sub_metering_1, Sub_metering_2, Sub_metering_3)]
@@ -31,4 +36,6 @@ plot3 <- function(){
     
     # close the device so R can write the plot to "plot1.png"
     dev.off()
+    
+    Sys.setlocale("LC_TIME", mylocale)
 }
