@@ -10,7 +10,7 @@ plot1 <- function(){
     data <- fread(dataFile, na.strings = "?")[Date == date1 | Date == date2,
                 .(Global_active_power)]
     # Open the png device to create plot1.png
-    png("plot1.png")
+    png("plot1.png", width = 480, height = 480)
     
     # Plott the histogram
     hist(data$Global_active_power, # the values to be plotted

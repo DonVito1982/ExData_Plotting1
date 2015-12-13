@@ -11,7 +11,7 @@ plot2 <- function(){
     data$FH <- as.POSIXct(paste(data$Date, data$Time), format = "%d/%m/%Y %T")
     
     # Open the png device to create plot1.png
-    png("plot2.png")
+    png("plot2.png", width = 480, height = 480)
     
     # Create an empty plot
     plot(data$FH,                  # X values

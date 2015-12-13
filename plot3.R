@@ -11,7 +11,7 @@ plot3 <- function(){
     data$FH <- as.POSIXct(paste(data$Date, data$Time), format = "%d/%m/%Y %T")
     
     # Open the png device to create plot1.png
-    png("plot3.png")
+    png("plot3.png", width = 480, height = 480)
     
     # Create an empty plot with Sub_metering_1 because it has the largest values
     plot(data$FH,                  # X values
